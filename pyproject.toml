@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=65", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "async-fastapi-task-manager"
+version = "0.1.0"
+description = "Reusable async task manager for FastAPI apps (persist, restore, manage background clients)."
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Nahom", email = "dev@nahom.codes" }]
+requires-python = ">=3.10"
+keywords = ["fastapi","async","task-manager","sqlalchemy","background"]
+
+dependencies = [
+  "fastapi>=0.116.0",
+  "sqlalchemy[asyncio]>=2.0",
+  "pydantic>=2.11",
+]
+
+# optional extras for DB drivers and tools
+[project.optional-dependencies]
+sqlite = ["aiosqlite>=0.21"]
+dev = ["pytest-asyncio", "pytest", "mypy", "black", "isort"]
+
+[dependency-groups]
+dev = [
+    "aiosqlite>=0.21.0",
+    "black>=25.1.0",
+    "git-cliff>=2.10.0",
+    "isort>=6.0.1",
+    "mypy>=1.17.1",
+    "pytest>=8.4.2",
+    "pytest-asyncio>=1.1.0",
+    "sqlalchemy[asyncio]>=2.0.43",
+    "tox>=4.30.2",
+    "twine>=6.2.0",
+]
